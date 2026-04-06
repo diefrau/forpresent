@@ -1,4 +1,169 @@
 import { MUSIC_DATABASE } from './data.js';
+
+// ─── YouTube Player ───────────────────────────────────────────────────────
+let ytPlayer = null;
+let ytReady = false;
+let isPlaying = false;
+let progressTimer = null;
+let isMuted = false;
+let currentVolume = 70;
+let currentVideoId = null; // 현재 로드된 영상 ID
+
+window.onYouTubeIframeAPIReady = function () {
+  ytPlayer = new YT.Player('yt-iframe', {
+    height: '144',
+    width: '256',
+    playerVars: { autoplay: 0, controls: 1, rel: 0, modestbranding: 1 },
+    events: {
+      onReady: (e) => {
+        ytReady = true;
+        e.target.setVolume(currentVolume);
+        if (currentVideoId) {
+          e.target.loadVideoById(currentVideoId);
+          document.getElementById('yt-wrap').classList.add('visible');
+          document.getElementById('btn-play-pause').disabled = false;
+        }
+      },
+      onStateChange: onYTStateChange,
+    }
+  });
+};
+
+function onYTStateChange(e) {
+  if (e.data === YT.PlayerState.PLAYING) {
+    setPlayingState(true);
+  } else if (e.data === YT.PlayerState.PAUSED || e.data === YT.PlayerState.ENDED) {
+    setPlayingState(false);
+  }
+}
+
+function setPlayingState(playing) {
+  isPlaying = playing;
+  const bar = document.getElementById('player-bar');
+  const iconPlay = document.getElementById('icon-play');
+  const iconPause = document.getElementById('icon-pause');
+  if (playing) {
+    bar.classList.add('playing');
+    iconPlay.style.display = 'none';
+    iconPause.style.display = '';
+    startProgressTimer();
+  } else {
+    bar.classList.remove('playing');
+    iconPlay.style.display = '';
+    iconPause.style.display = 'none';
+    stopProgressTimer();
+  }
+}
+
+function startProgressTimer() {
+  stopProgressTimer();
+  progressTimer = setInterval(updateProgress, 500);
+}
+function stopProgressTimer() {
+  if (progressTimer) { clearInterval(progressTimer); progressTimer = null; }
+}
+
+function formatTime(sec) {
+  if (!isFinite(sec)) return '0:00';
+  const m = Math.floor(sec / 60);
+  const s = Math.floor(sec % 60);
+  return `${m}:${s.toString().padStart(2, '0')}`;
+}
+
+function updateProgress() {
+  if (!ytPlayer || !ytReady) return;
+  const cur = ytPlayer.getCurrentTime() || 0;
+  const dur = ytPlayer.getDuration() || 0;
+  const pct = dur > 0 ? (cur / dur) * 100 : 0;
+  document.getElementById('seekbar-fill').style.width = pct + '%';
+  document.getElementById('seekbar-thumb').style.left = pct + '%';
+  document.getElementById('time-current').textContent = formatTime(cur);
+  document.getElementById('time-total').textContent = formatTime(dur);
+}
+
+function loadTrack(info, countryName, year) {
+  const btn = document.getElementById('btn-play-pause');
+  const noAudio = document.getElementById('player-no-audio');
+
+  document.getElementById('player-country-tag').textContent = countryName;
+  document.getElementById('player-year-tag').textContent = year;
+  document.getElementById('player-song-name').textContent = info ? (info.song || '—') : '—';
+  document.getElementById('player-artist-name').textContent = info ? (info.artist || '—') : '—';
+
+  if (info && info.youtubeId) {
+    currentVideoId = info.youtubeId;
+    noAudio.style.display = 'none';
+    btn.disabled = false;
+
+    if (ytReady) {
+      ytPlayer.loadVideoById(currentVideoId);
+      document.getElementById('yt-wrap').classList.add('visible');
+    }
+    // ytReady가 false면 onReady 콜백에서 처리됨
+  } else {
+    currentVideoId = null;
+    btn.disabled = true;
+    noAudio.style.display = 'block';
+    document.getElementById('yt-wrap').classList.remove('visible');
+    setPlayingState(false);
+    document.getElementById('seekbar-fill').style.width = '0%';
+    document.getElementById('seekbar-thumb').style.left = '0%';
+    document.getElementById('time-current').textContent = '0:00';
+    document.getElementById('time-total').textContent = '0:00';
+  }
+}
+
+// Play/pause button
+document.getElementById('btn-play-pause').addEventListener('click', () => {
+  if (!currentVideoId || !ytPlayer || !ytReady) return;
+  if (isPlaying) {
+    ytPlayer.pauseVideo();
+  } else {
+    // 사용자 클릭(제스처) 내에서 loadVideoById 호출 → Autoplay Policy 통과
+    ytPlayer.loadVideoById(currentVideoId);
+    document.getElementById('yt-wrap').classList.add('visible');
+  }
+});
+
+// 미니플레이어 닫기
+document.getElementById('yt-close').addEventListener('click', () => {
+  document.getElementById('yt-wrap').classList.remove('visible');
+  if (ytPlayer && ytReady) ytPlayer.pauseVideo();
+});
+
+// Seekbar click
+document.getElementById('seekbar').addEventListener('click', e => {
+  if (!ytPlayer || !ytReady) return;
+  const rect = e.currentTarget.getBoundingClientRect();
+  const pct = (e.clientX - rect.left) / rect.width;
+  const dur = ytPlayer.getDuration() || 0;
+  ytPlayer.seekTo(pct * dur, true);
+});
+
+// Mute button
+document.getElementById('btn-mute').addEventListener('click', () => {
+  if (!ytPlayer || !ytReady) return;
+  isMuted = !isMuted;
+  if (isMuted) ytPlayer.mute();
+  else ytPlayer.unMute();
+  document.getElementById('icon-vol-on').style.display = isMuted ? 'none' : '';
+  document.getElementById('icon-vol-off').style.display = isMuted ? '' : 'none';
+});
+
+// Volume slider
+document.getElementById('volume-slider').addEventListener('input', e => {
+  currentVolume = Number(e.target.value);
+  if (ytPlayer && ytReady) {
+    ytPlayer.setVolume(currentVolume);
+    if (currentVolume > 0 && isMuted) {
+      isMuted = false;
+      ytPlayer.unMute();
+      document.getElementById('icon-vol-on').style.display = '';
+      document.getElementById('icon-vol-off').style.display = 'none';
+    }
+  }
+});
+
 // ─── State ────────────────────────────────────────────────────────────────
 let currentYear = 1990;
 let isDragging = false;
@@ -317,7 +482,6 @@ window.addEventListener('wheel', (e) => {
 }, { passive: true });
 
 
-// 2. 수정된 openModal 함수 (API 호출 없이 로컬 데이터 사용)
 function openModal(country) {
   const overlay = document.getElementById('modal-overlay');
   overlay.classList.add('active');
@@ -325,11 +489,18 @@ function openModal(country) {
   document.getElementById('modal-loading').style.display = 'block';
   document.getElementById('loading-text').textContent = `Digging ${country.name} ${currentYear}...`;
 
-  // 데이터 조회 (0.5초 뒤에 결과 표시 - 로딩 효과)
-  setTimeout(() => {
-    const countryData = MUSIC_DATABASE[country.name];
-    const info = countryData ? countryData[currentYear] : null;
+  const countryData = MUSIC_DATABASE[country.name];
+  const yearData = countryData ? countryData[currentYear] : null;
+  // 배열이면 랜덤 선택, 단일 객체면 그대로 사용 (하위 호환)
+  const info = Array.isArray(yearData)
+    ? yearData[Math.floor(Math.random() * yearData.length)]
+    : yearData;
 
+  // ★ 플레이어는 클릭 즉시 로드 (사용자 제스처 컨텍스트 내 → Autoplay 허용)
+  loadTrack(info, country.name, currentYear);
+
+  // 모달 UI만 0.5초 후 표시 (로딩 애니메이션 효과)
+  setTimeout(() => {
     if (info) {
       document.getElementById('modal-country-badge').textContent = country.name;
       document.getElementById('modal-year-badge').textContent = currentYear;
@@ -351,7 +522,6 @@ function openModal(country) {
       document.getElementById('modal-loading').style.display = 'none';
       document.getElementById('modal-body').style.display = 'block';
     } else {
-      // 데이터가 없는 경우 표시할 메시지
       showError(`${country.name}의 ${currentYear}년 데이터가 준비되지 않았습니다.`);
     }
   }, 500);
