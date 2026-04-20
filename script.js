@@ -1,4 +1,4 @@
-import { MUSIC_DATABASE } from './data.js';
+﻿import { MUSIC_DATABASE } from './data.js';
 
 // ─── YouTube Player ───────────────────────────────────────────────────────
 let ytPlayer = null;
@@ -18,9 +18,8 @@ window.onYouTubeIframeAPIReady = function () {
       onReady: (e) => {
         ytReady = true;
         e.target.setVolume(currentVolume);
+        document.getElementById('yt-wrap').classList.add('visible');
         if (currentVideoId) {
-          e.target.loadVideoById(currentVideoId);
-          document.getElementById('yt-wrap').classList.add('visible');
           document.getElementById('btn-play-pause').disabled = false;
         }
       },
@@ -93,13 +92,13 @@ function loadTrack(info, countryName, year) {
   if (info && info.youtubeId) {
     currentVideoId = info.youtubeId;
     noAudio.style.display = 'none';
-    btn.disabled = false;
+    btn.disabled = !ytReady;
 
     if (ytReady) {
       ytPlayer.loadVideoById(currentVideoId);
       document.getElementById('yt-wrap').classList.add('visible');
     }
-    // ytReady가 false면 onReady 콜백에서 처리됨
+    // ytReady가 false면 플레이어 준비 후 사용자가 재생 버튼을 누름
   } else {
     currentVideoId = null;
     btn.disabled = true;
@@ -172,8 +171,37 @@ let prevMouse = { x: 0, y: 0 };
 let rotY = 0, rotX = 0;
 let autoRotate = true;
 let hoveredCountry = null;
+let selectedCountryCode = null;
 let frame = 0;
 let globe; // 이 줄을 반드시 추가하세요!
+const AUTO_ROTATE_IDLE_MS = 4000;
+let autoRotateResumeTimer = null;
+
+function clearAutoRotateResumeTimer() {
+  if (autoRotateResumeTimer) {
+    clearTimeout(autoRotateResumeTimer);
+    autoRotateResumeTimer = null;
+  }
+}
+
+function pauseAutoRotate() {
+  autoRotate = false;
+  clearAutoRotateResumeTimer();
+}
+
+function scheduleAutoRotateResume(delay = AUTO_ROTATE_IDLE_MS) {
+  clearAutoRotateResumeTimer();
+  autoRotateResumeTimer = setTimeout(() => {
+    if (!isDragging) {
+      autoRotate = true;
+    }
+  }, delay);
+}
+
+function registerInteraction(resumeDelay = AUTO_ROTATE_IDLE_MS) {
+  pauseAutoRotate();
+  scheduleAutoRotateResume(resumeDelay);
+}
 
 
 // ─── Custom Cursor ────────────────────────────────────────────────────────
@@ -190,15 +218,78 @@ document.addEventListener('mousemove', e => {
 
 // ─── Year Controls ────────────────────────────────────────────────────────
 const yearEl = document.getElementById('current-year');
+const yearPicker = document.getElementById('year-picker');
+const yearGrid = document.getElementById('year-grid');
+const yearPickerClose = document.getElementById('year-picker-close');
+const MIN_YEAR = 1950;
+const MAX_YEAR = 2024;
+const YEAR_STEP = 10;
+
+function clampYear(year) {
+  return Math.max(MIN_YEAR, Math.min(MAX_YEAR, year));
+}
+
+function updateYearDisplay() {
+  yearEl.textContent = currentYear;
+  document.querySelectorAll('.year-option').forEach(option => {
+    option.classList.toggle('active', Number(option.dataset.year) === currentYear);
+  });
+}
+
+function setYear(nextYear) {
+  currentYear = clampYear(nextYear);
+  updateYearDisplay();
+}
+
+function toggleYearPicker(forceOpen) {
+  const shouldOpen = typeof forceOpen === 'boolean' ? forceOpen : !yearPicker.classList.contains('open');
+  yearPicker.classList.toggle('open', shouldOpen);
+  yearPicker.setAttribute('aria-hidden', String(!shouldOpen));
+  yearEl.setAttribute('aria-expanded', String(shouldOpen));
+}
+
+for (let year = MIN_YEAR; year <= MAX_YEAR; year += 1) {
+  const option = document.createElement('button');
+  option.type = 'button';
+  option.className = 'year-option';
+  option.dataset.year = String(year);
+  option.textContent = String(year);
+  option.addEventListener('click', () => {
+    setYear(year);
+    toggleYearPicker(false);
+  });
+  yearGrid.appendChild(option);
+}
+
+updateYearDisplay();
+
 document.getElementById('prev-year').addEventListener('click', () => {
-  if (currentYear > 1950) yearEl.textContent = --currentYear;
+  setYear(currentYear - YEAR_STEP);
 });
 document.getElementById('next-year').addEventListener('click', () => {
-  if (currentYear < 2024) yearEl.textContent = ++currentYear;
+  setYear(currentYear + YEAR_STEP);
+});
+yearEl.addEventListener('click', () => {
+  toggleYearPicker();
+});
+yearPickerClose.addEventListener('click', () => {
+  toggleYearPicker(false);
 });
 document.addEventListener('keydown', e => {
-  if (e.key === 'ArrowLeft' && currentYear > 1950) yearEl.textContent = --currentYear;
-  if (e.key === 'ArrowRight' && currentYear < 2024) yearEl.textContent = ++currentYear;
+  if (e.key === 'ArrowLeft') {
+    setYear(currentYear - YEAR_STEP);
+    registerInteraction();
+  }
+  if (e.key === 'ArrowRight') {
+    setYear(currentYear + YEAR_STEP);
+    registerInteraction();
+  }
+  if (e.key === 'Escape') toggleYearPicker(false);
+});
+document.addEventListener('click', e => {
+  if (!e.target.closest('#year-panel')) {
+    toggleYearPicker(false);
+  }
 });
 
 // ─── Three.js Setup ───────────────────────────────────────────────────────
@@ -324,6 +415,23 @@ const countries = [
   { name:"Chile",           code:"CL", lat:-35.67, lon:-71.54 },
 ];
 
+const navItems = new Map();
+
+function setActiveCountry(code = null) {
+  navItems.forEach((item, itemCode) => {
+    item.classList.toggle('active', itemCode === code);
+  });
+}
+
+function focusCountry(country, holdRotationMs = AUTO_ROTATE_IDLE_MS) {
+  const phi = (90 - country.lat) * (Math.PI / 180);
+  const theta = (country.lon + 180) * (Math.PI / 180);
+  pauseAutoRotate();
+  rotY = -theta + Math.PI;
+  rotX = phi - Math.PI / 2;
+  scheduleAutoRotateResume(holdRotationMs);
+}
+
 
 // 국가 리스트 생성
 const listEl = document.getElementById('country-list');
@@ -333,21 +441,21 @@ countries.sort((a, b) => a.name.localeCompare(b.name)).forEach(c => {
   item.textContent = c.name;
   item.dataset.code = c.code;
   item.onclick = () => {
-    // 해당 국가로 회전
-    const phi = (90 - c.lat) * (Math.PI / 180);
-    const theta = (c.lon + 180) * (Math.PI / 180);
-    autoRotate = false;
-    // 부드러운 회전을 위해 목표값 설정 (간단히 구현)
-    rotY = -theta + Math.PI;
-    rotX = phi - Math.PI / 2;
-    setTimeout(() => autoRotate = true, 5000);
-    openModal(c);
+    selectedCountryCode = c.code;
+    setActiveCountry(c.code);
+    focusCountry(c);
+    const rect = item.getBoundingClientRect();
+    showCard(c, rect.right + 12, rect.top + rect.height / 2);
   };
+  navItems.set(c.code, item);
   listEl.appendChild(item);
 });
 
 const dotGeo = new THREE.SphereGeometry(0.012, 12, 12);
+const hitRadius = window.matchMedia('(pointer: coarse)').matches ? 0.06 : 0.04;
+const hitGeo = new THREE.SphereGeometry(hitRadius, 16, 16);
 const countryMeshes = [];
+const countryHitMeshes = [];
 const countryLabels = [];
 const labelContainer = document.getElementById('country-labels');
 
@@ -360,6 +468,10 @@ countries.forEach(c => {
     shininess: 100
   });
   const dot = new THREE.Mesh(dotGeo, mat);
+  const hitMesh = new THREE.Mesh(
+    hitGeo,
+    new THREE.MeshBasicMaterial({ transparent: true, opacity: 0, depthWrite: false })
+  );
 
   // 위도/경도를 3D 좌표로 변환 (반지름 1.02)
   const radius = 1.02;
@@ -372,8 +484,12 @@ countries.forEach(c => {
     radius * Math.sin(phi) * Math.sin(theta)
   );
   dot.userData = { country: c };
+  hitMesh.position.copy(dot.position);
+  hitMesh.userData = { country: c, dot };
   globe.add(dot);
+  globe.add(hitMesh);
   countryMeshes.push(dot);
+  countryHitMeshes.push(hitMesh);
 
   // 나라명 레이블 생성
   const label = document.createElement('div');
@@ -394,17 +510,18 @@ canvas.addEventListener('mousemove', e => {
   mouse2d.y = -(e.clientY / window.innerHeight) * 2 + 1;
 
   raycaster.setFromCamera(mouse2d, camera);
-  const hits = raycaster.intersectObjects(countryMeshes);
+  const hits = raycaster.intersectObjects(countryHitMeshes);
 
   if (hits.length > 0) {
     const hit = hits[0].object;
     hoveredCountry = hit.userData.country;
+    setActiveCountry(hoveredCountry.code);
     tooltip.style.display = 'block';
     tooltip.style.left = (e.clientX + 18) + 'px';
     tooltip.style.top = (e.clientY - 12) + 'px';
     tooltip.textContent = hoveredCountry.name;
     countryMeshes.forEach(m => {
-      const isHit = m === hit;
+      const isHit = m === hit.userData.dot;
       m.material.color.setHex(isHit ? 0xff3c6e : 0x00c8ff);
       m.material.emissive.setHex(isHit ? 0x660020 : 0x004466);
     });
@@ -414,9 +531,7 @@ canvas.addEventListener('mousemove', e => {
   } else {
     hoveredCountry = null;
     tooltip.style.display = 'none';
-    
-    // 리스트 하이라이트 제거
-    document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+    setActiveCountry(selectedCountryCode);
 
     countryMeshes.forEach(m => {
       m.material.color.setHex(0xffffff);
@@ -428,15 +543,16 @@ canvas.addEventListener('mousemove', e => {
   }
 });
 
-canvas.addEventListener('click', () => {
+canvas.addEventListener('click', e => {
   if (dragMoved) return;
-  if (hoveredCountry) openModal(hoveredCountry);
+  registerInteraction();
+  if (hoveredCountry) showCard(hoveredCountry, e.clientX, e.clientY);
 });
 
 // ─── Drag Rotation ────────────────────────────────────────────────────────
 canvas.addEventListener('mousedown', e => {
   isDragging = true; dragMoved = false;
-  autoRotate = false;
+  pauseAutoRotate();
   prevMouse = { x: e.clientX, y: e.clientY };
 });
 window.addEventListener('mousemove', e => {
@@ -450,12 +566,12 @@ window.addEventListener('mousemove', e => {
 });
 window.addEventListener('mouseup', () => {
   isDragging = false;
-  setTimeout(() => autoRotate = true, 2500);
+  scheduleAutoRotateResume();
 });
 
 // Touch support
 canvas.addEventListener('touchstart', e => {
-  isDragging = true; dragMoved = false; autoRotate = false;
+  isDragging = true; dragMoved = false; pauseAutoRotate();
   prevMouse = { x: e.touches[0].clientX, y: e.touches[0].clientY };
 });
 canvas.addEventListener('touchmove', e => {
@@ -469,11 +585,12 @@ canvas.addEventListener('touchmove', e => {
 }, { passive: false });
 canvas.addEventListener('touchend', () => {
   isDragging = false;
-  setTimeout(() => autoRotate = true, 2500);
+  scheduleAutoRotateResume();
 });
 
 // 마우스 휠 이벤트 추가
 window.addEventListener('wheel', (e) => {
+  registerInteraction();
   // 카메라의 z축 값(거리)을 변경하여 확대/축소 구현
   camera.position.z += e.deltaY * 0.005;
   
@@ -481,36 +598,56 @@ window.addEventListener('wheel', (e) => {
   camera.position.z = Math.max(3, Math.min(camera.position.z, 10));
 }, { passive: true });
 
+document.addEventListener('click', e => {
+  if (!e.target.closest('#globe-canvas') || hoveredCountry === null) {
+    registerInteraction();
+  }
+}, true);
 
-function openModal(country) {
-  const overlay = document.getElementById('modal-overlay');
-  overlay.classList.add('active');
-  document.getElementById('modal-body').style.display = 'none';
-  document.getElementById('modal-loading').style.display = 'block';
-  document.getElementById('loading-text').textContent = `Digging ${country.name} ${currentYear}...`;
+
+function showCard(country, clickX, clickY) {
+  const card = document.getElementById('info-card');
+  selectedCountryCode = country.code;
+  setActiveCountry(country.code);
 
   const countryData = MUSIC_DATABASE[country.name];
   const yearData = countryData ? countryData[currentYear] : null;
-  // 배열이면 랜덤 선택, 단일 객체면 그대로 사용 (하위 호환)
   const info = Array.isArray(yearData)
     ? yearData[Math.floor(Math.random() * yearData.length)]
     : yearData;
 
-  // ★ 플레이어는 클릭 즉시 로드 (사용자 제스처 컨텍스트 내 → Autoplay 허용)
+  // 플레이어 즉시 로드 (사용자 제스처 컨텍스트 → Autoplay 허용)
   loadTrack(info, country.name, currentYear);
 
-  // 모달 UI만 0.5초 후 표시 (로딩 애니메이션 효과)
-  setTimeout(() => {
-    if (info) {
-      document.getElementById('modal-country-badge').textContent = country.name;
-      document.getElementById('modal-year-badge').textContent = currentYear;
-      document.getElementById('modal-song-title').textContent = info.song || '—';
-      document.getElementById('modal-artist').textContent = info.artist || '—';
-      document.getElementById('meta-album').textContent = info.album || '—';
-      document.getElementById('meta-release').textContent = info.releaseDate || '—';
-      document.getElementById('modal-desc').textContent = info.description || '—';
+  // 카드 위치 계산 (화면 밖으로 나가지 않도록 클램프)
+  const W = 300, H = 280;
+  let x = clickX + 20;
+  let y = clickY - H / 2;
+  if (x + W > window.innerWidth - 16)  x = clickX - W - 20;
+  if (x < 16)                           x = 16;
+  if (y < 16)                           y = 16;
+  if (y + H > window.innerHeight - 90) y = window.innerHeight - 90 - H;
+  card.style.left = x + 'px';
+  card.style.top  = y + 'px';
 
-      const tagsEl = document.getElementById('modal-genres');
+  // 로딩 상태로 카드 표시
+  card.classList.add('active');
+  document.getElementById('card-body').style.display = 'none';
+  document.getElementById('card-loading').style.display = 'flex';
+  document.getElementById('loading-text').textContent = `Digging ${country.name}...`;
+
+  setTimeout(() => {
+    if (!card.classList.contains('active')) return; // 로딩 중 닫혔을 때
+    if (info) {
+      document.getElementById('card-country').textContent = country.name;
+      document.getElementById('card-year').textContent = currentYear;
+      document.getElementById('card-song').textContent = info.song || '—';
+      document.getElementById('card-artist').textContent = info.artist || '—';
+      document.getElementById('card-album').textContent = info.album || '—';
+      document.getElementById('card-release').textContent = info.releaseDate || '—';
+      document.getElementById('card-desc').textContent = info.description || '';
+
+      const tagsEl = document.getElementById('card-genres');
       tagsEl.innerHTML = '';
       (info.genres || []).forEach(g => {
         const t = document.createElement('div');
@@ -518,23 +655,23 @@ function openModal(country) {
         t.textContent = g;
         tagsEl.appendChild(t);
       });
-
-      document.getElementById('modal-loading').style.display = 'none';
-      document.getElementById('modal-body').style.display = 'block';
     } else {
-      showError(`${country.name}의 ${currentYear}년 데이터가 준비되지 않았습니다.`);
+      document.getElementById('card-country').textContent = country.name;
+      document.getElementById('card-year').textContent = currentYear;
+      document.getElementById('card-song').textContent = '데이터 없음';
+      document.getElementById('card-artist').textContent = '';
+      document.getElementById('card-album').textContent = '—';
+      document.getElementById('card-release').textContent = '—';
+      document.getElementById('card-genres').innerHTML = '';
+      document.getElementById('card-desc').textContent = '이 나라/연도의 음악 정보가 아직 준비되지 않았습니다.';
     }
-  }, 500);
+    document.getElementById('card-loading').style.display = 'none';
+    document.getElementById('card-body').style.display = 'block';
+  }, 400);
 }
-function showError(msg) {
-  document.getElementById('modal-loading').style.display = 'none';
-  document.getElementById('modal-body').style.display = 'block';
-  document.getElementById('modal-song-title').textContent = 'Error';
-  document.getElementById('modal-artist').textContent = '';
-  document.getElementById('meta-album').textContent = '—';
-  document.getElementById('meta-release').textContent = '—';
-  document.getElementById('modal-genres').innerHTML = '';
-  document.getElementById('modal-desc').textContent = msg;
+
+function closeCard() {
+  document.getElementById('info-card').classList.remove('active');
 }
 
 // ─── Random Country ───────────────────────────────────────────────────────
@@ -553,26 +690,23 @@ randomBtn.addEventListener('click', () => {
   setTimeout(() => randomBtn.classList.remove('spinning'), 500);
 
   // 해당 국가로 지구본 회전
-  const phi = (90 - randomCountry.lat) * (Math.PI / 180);
-  const theta = (randomCountry.lon + 180) * (Math.PI / 180);
-  autoRotate = false;
-  rotY = -theta + Math.PI;
-  rotX = phi - Math.PI / 2;
-  setTimeout(() => autoRotate = true, 5000);
+  selectedCountryCode = randomCountry.code;
+  setActiveCountry(randomCountry.code);
+  focusCountry(randomCountry);
 
-  // 모달 오픈
-  openModal(randomCountry);
+  // 카드: 화면 중앙에 표시 (random은 마우스 위치 없음)
+  showCard(randomCountry, window.innerWidth / 2, window.innerHeight / 2);
 });
 
-document.getElementById('modal-close').addEventListener('click', () => {
-  document.getElementById('modal-overlay').classList.remove('active');
-});
-document.getElementById('modal-overlay').addEventListener('click', e => {
-  if (e.target === document.getElementById('modal-overlay'))
-    document.getElementById('modal-overlay').classList.remove('active');
-});
+// ─── Card Close ───────────────────────────────────────────────────────────
+document.getElementById('card-close').addEventListener('click', closeCard);
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') document.getElementById('modal-overlay').classList.remove('active');
+  if (e.key === 'Escape') closeCard();
+});
+document.addEventListener('click', e => {
+  const card = document.getElementById('info-card');
+  if (card.classList.contains('active') && !card.contains(e.target) && !e.target.closest('#globe-canvas'))
+    closeCard();
 });
 
 // ─── Animation Loop ───────────────────────────────────────────────────────
@@ -617,3 +751,4 @@ window.addEventListener('resize', () => {
 });
 
 animate();
+

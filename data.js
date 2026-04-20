@@ -1,4 +1,4 @@
-// data.js
+﻿// data.js
 // 구조: { "국가명": { "연도": [ ...곡 배열 ] } }
 // 나라를 클릭하면 해당 연도 배열에서 랜덤으로 한 곡을 선택합니다.
 export const MUSIC_DATABASE = {
