@@ -610,7 +610,8 @@ export const MUSIC_DATABASE = {
         album: "Still Alive",
         releaseDate: "2012.03.21",
         genres: ["K-Pop", "Electronic", "Hip-hop"],
-        description: "BIGBANG의 파워풀한 퍼포먼스와 강렬한 사운드로 전 세계 K-Pop 팬들을 사로잡은 곡입니다."
+        description: "BIGBANG의 파워풀한 퍼포먼스와 강렬한 사운드로 전 세계 K-Pop 팬들을 사로잡은 곡입니다.",
+        youtubeId: "AAbokV76tkU"
       },
       {
         song: "I Love You",
@@ -618,7 +619,8 @@ export const MUSIC_DATABASE = {
         album: "2NE1 2집",
         releaseDate: "2012.07.01",
         genres: ["K-Pop", "Dance-pop", "R&B"],
-        description: "2NE1의 걸크러시 매력이 담긴 곡으로, 강렬한 보컬과 세련된 프로덕션이 돋보입니다."
+        description: "2NE1의 걸크러시 매력이 담긴 곡으로, 강렬한 보컬과 세련된 프로덕션이 돋보입니다.",
+        youtubeId: "LUrUPzLm5SI"
       }
     ],
     "2020": [
