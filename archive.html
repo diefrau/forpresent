@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SONIC GLOBE — Archive</title>
+  <link rel="stylesheet" href="stylesheet.css">
+  <link rel="stylesheet" href="archive.css">
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<header id="header">
+  <div>
+    <a href="index.html" id="logo">SONIC<span>GLOBE</span></a>
+    <div id="tagline">모든 시대의 소리가 당신을 기다립니다</div>
+  </div>
+  <div id="header-right">
+    <div id="archive-stats">
+      <span id="total-count">0</span> TRACKS LOADED
+    </div>
+  </div>
+</header>
+
+<main id="archive-container">
+  <section id="filter-bar">
+    <div class="search-wrap">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+      <input type="text" id="search-input" placeholder="Search by song, artist, or genre...">
+    </div>
+    
+    <div class="filters">
+      <select id="country-filter">
+        <option value="">All Countries</option>
+      </select>
+      <select id="genre-filter">
+        <option value="">All Genres</option>
+      </select>
+      <select id="sort-order">
+        <option value="year-desc">Year (Newest)</option>
+        <option value="year-asc">Year (Oldest)</option>
+        <option value="name-asc">A-Z</option>
+      </select>
+    </div>
+
+    <div id="related-genres-box" style="display: none;">
+      <span class="label">RELATED GENRES:</span>
+      <div id="related-tags"></div>
+    </div>
+  </section>
+
+  <div id="song-grid">
+    <!-- Songs will be injected here -->
+    <div id="archive-loading">
+      <div class="spinner"></div>
+      <p>FLATTENING DATABASE...</p>
+    </div>
+  </div>
+</main>
+
+<!-- Back to Globe FAB -->
+<a href="globe.html" id="view-toggle-fab" title="Back to 3D Globe">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="10"></circle>
+    <line x1="2" y1="12" x2="22" y2="12"></line>
+    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+  </svg>
+  <span>GLOBE</span>
+</a>
+
+<script type="module" src="archive.js"></script>
+</body>
+</html>

@@ -857,6 +857,64 @@
     cursor: pointer;
   }
 
+  /* ─── View Toggle FAB ────────────────────────────────────────── */
+  #view-toggle-fab {
+    position: fixed;
+    right: 36px;
+    bottom: 100px;
+    z-index: 350;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    background: rgba(8, 13, 20, 0.9);
+    border: 1px solid var(--border);
+    color: var(--accent);
+    text-decoration: none;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  }
+
+  #view-toggle-fab svg {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+  }
+
+  #view-toggle-fab span {
+    font-weight: 700;
+  }
+
+  #view-toggle-fab:hover {
+    border-color: var(--accent);
+    background: rgba(0, 200, 255, 0.1);
+    box-shadow: var(--glow);
+    transform: translateY(-4px);
+  }
+
+  #view-toggle-fab:hover svg {
+    transform: scale(1.1);
+  }
+
+  @media (max-width: 900px) {
+    #view-toggle-fab {
+      right: 20px;
+      bottom: 110px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    #view-toggle-fab {
+      right: 16px;
+      bottom: 160px;
+      padding: 10px 16px;
+    }
+  }
+
   /* Push instruction up so it's not behind player */
   #instruction { bottom: 88px; }
 

@@ -26,7 +26,7 @@
         <button id="current-year" type="button" aria-haspopup="dialog" aria-expanded="false">1990</button>
         <button class="year-btn" id="next-year">▶</button>
       </div>
-      <div id="year-jump-hint">Jump by decade. Click the year for full selection.</div>
+      <div id="year-jump-hint">&nbsp;</div>
       <div id="year-picker" aria-hidden="true">
         <div id="year-picker-header">
           <span>Choose a year</span>
@@ -56,14 +56,14 @@
 
 <div id="side-info">
   <div id="country-nav">
-    <div id="country-list-title">EXPLORE COUNTRIES</div>
+    <div id="country-list-title">나라를 탐색하세요.&nbsp;&nbsp;</div>
     <div id="country-list"></div>
   </div>
 </div>
 
 <div id="country-labels"></div>
 
-<div id="instruction">✦ CLICK A COUNTRY TO DIG ITS MUSIC &nbsp;·&nbsp; DRAG TO ROTATE ✦</div>
+<div id="instruction">✦ 나라를 선택하고, 디깅을 시작하세요!&nbsp; 드래그 시 회전합니다.✦</div>
 
 <!-- Info Card -->
 <div id="info-card">
@@ -164,6 +164,19 @@
     <input type="range" id="volume-slider" min="0" max="100" value="70">
   </div>
 </div>
+
+<!-- Go to Archive FAB -->
+<a href="archive.html" id="view-toggle-fab" title="Go to Archive List">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="8" y1="6" x2="21" y2="6"></line>
+    <line x1="8" y1="12" x2="21" y2="12"></line>
+    <line x1="8" y1="18" x2="21" y2="18"></line>
+    <line x1="3" y1="6" x2="3.01" y2="6"></line>
+    <line x1="3" y1="12" x2="3.01" y2="12"></line>
+    <line x1="3" y1="18" x2="3.01" y2="18"></line>
+  </svg>
+  <span>ARCHIVE</span>
+</a>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://www.youtube.com/iframe_api"></script>

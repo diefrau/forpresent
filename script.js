@@ -612,9 +612,20 @@ function showCard(country, clickX, clickY) {
 
   const countryData = MUSIC_DATABASE[country.name];
   const yearData = countryData ? countryData[currentYear] : null;
-  const info = Array.isArray(yearData)
-    ? yearData[Math.floor(Math.random() * yearData.length)]
-    : yearData;
+  
+  // Check if a specific song was requested from Archive
+  const requestedSong = localStorage.getItem('selected_song');
+  let info = null;
+
+  if (requestedSong && yearData) {
+    const songArray = Array.isArray(yearData) ? yearData : [yearData];
+    info = songArray.find(s => s.song === requestedSong) || songArray[0];
+    localStorage.removeItem('selected_song'); // Clear it after use
+  } else {
+    info = Array.isArray(yearData)
+      ? yearData[Math.floor(Math.random() * yearData.length)]
+      : yearData;
+  }
 
   // 플레이어 즉시 로드 (사용자 제스처 컨텍스트 → Autoplay 허용)
   loadTrack(info, country.name, currentYear);
@@ -751,4 +762,33 @@ window.addEventListener('resize', () => {
 });
 
 animate();
+
+// ─── Initialization from Storage ──────────────────────────────────────────
+function initFromStorage() {
+  const storedCountry = localStorage.getItem('selected_country');
+  const storedYear = localStorage.getItem('selected_year');
+
+  if (storedCountry && storedYear) {
+    // 1. Set year
+    setYear(Number(storedYear));
+
+    // 2. Find and focus country
+    const country = countries.find(c => c.name === storedCountry);
+    if (country) {
+      setTimeout(() => {
+        selectedCountryCode = country.code;
+        setActiveCountry(country.code);
+        focusCountry(country);
+        showCard(country, window.innerWidth / 2, window.innerHeight / 2);
+      }, 500); // Wait a bit for globe to be ready
+    }
+
+    // 3. Clear storage
+    localStorage.removeItem('selected_country');
+    localStorage.removeItem('selected_year');
+  }
+}
+
+// Run storage init
+initFromStorage();
 
