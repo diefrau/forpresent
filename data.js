@@ -2266,81 +2266,877 @@ export const MUSIC_DATABASE = {
     }
   ],
 },
-  "United States": {
-    "1950": [
-      {
-        "song": "Mona Lisa",
-        "artist": "Nat King Cole",
-        "album": "Mona Lisa (Single)",
-        "releaseDate": "1950.05",
-        "genres": ["Traditional Pop", "Vocal Jazz"],
-        "description": "부드러운 바리톤 음색이 돋보이는 냇 킹 콜의 대표곡으로, 빌보드 차트 8주 연속 1위를 기록하며 50년대 팝의 정수를 보여줍니다.",
-        "youtubeId": "NUXSntPFTSI"
-      },
-      {
-        "song": "If I Knew You Were Comin' I'd've Baked a Cake",
-        "artist": "Eileen Barton",
-        "album": "If I Knew You Were Comin' I'd've Baked a Cake (Single)",
-        "releaseDate": "1950.01",
-        "genres": ["Traditional Pop", "Novelty"],
-        "description": "50년대 초반 미국에서 선풍적인 인기를 끌었던 경쾌한 노블티 송으로, 당시의 낙천적인 사회 분위기를 잘 반영하고 있습니다.",
-        "youtubeId": "L-SshG7PAnM"
-      },
-      {
-        "song": "Tennessee Waltz",
-        "artist": "Patti Page",
-        "album": "Tennessee Waltz (Single)",
-        "releaseDate": "1950.11",
-        "genres": ["Traditional Pop", "Country"],
-        "description": "패티 페이지의 가장 성공적인 싱글로, 팝과 컨트리 장르의 경계를 허물며 전 세계적으로 수백만 장의 판매고를 올린 클래식입니다.",
-        "youtubeId": "2_8T9nd0Zew"
-      },
-      {
-        "song": "Long Gone Lonesome Blues",
-        "artist": "Hank Williams",
-        "album": "Long Gone Lonesome Blues (Single)",
-        "releaseDate": "1950.03",
-        "genres": ["Country", "Honky Tonk"],
-        "description": "컨트리 음악의 전설 행크 윌리엄스의 곡으로, 요들 창법과 애절한 블루스 감성이 결합된 초기 컨트리의 걸작입니다.",
-        "youtubeId": "T9_VunpY_xQ"
-      },
-      {
-        "song": "Teardrops from My Eyes",
-        "artist": "Ruth Brown",
-        "album": "Teardrops from My Eyes (Single)",
-        "releaseDate": "1950.10",
-        "genres": ["Rhythm & Blues", "Jump Blues"],
-        "description": "루스 브라운에게 '미스 리듬'이라는 별명을 안겨준 곡으로, 초기 R&B 차트를 석권하며 락앤롤의 탄생에 큰 영향을 주었습니다.",
-        "youtubeId": "E6v-C2pXIn0"
-      },
-      {
-        "song": "Please Send Me Someone to Love",
-        "artist": "Percy Mayfield",
-        "album": "Please Send Me Someone to Love (Single)",
-        "releaseDate": "1950.09",
-        "genres": ["Rhythm & Blues", "West Coast Blues"],
-        "description": "부드럽고 세련된 블루스 스타일의 곡으로, 인종 차별에 대한 은유적인 가사와 평화를 갈구하는 메시지로 깊은 울림을 줍니다.",
-        "youtubeId": "O_S8v7O_7mY"
-      }
-    ],
-    "1977": [
-      {
-        song: "Hotel California",
-        artist: "Eagles",
-        album: "Hotel California",
-        releaseDate: "1977.02.22",
-        genres: ["Rock", "Soft Rock", "Country Rock"],
-        description: "미국 록 역사상 가장 상징적인 곡 중 하나. 기타 솔로와 신비로운 가사로 시대를 초월한 명곡입니다."
-      },
-      {
-        song: "Dreams",
-        artist: "Fleetwood Mac",
-        album: "Rumours",
-        releaseDate: "1977.02.04",
-        genres: ["Soft Rock", "Pop Rock"],
-        description: "Fleetwood Mac의 전설적인 앨범 Rumours에 수록된 곡으로, TikTok을 통해 2020년에 재유행했습니다."
-      }
-    ],
+"United States": {
+  "1950": [
+    {
+      "song": "Goodnight Irene",
+      "artist": "Gordon Jenkins and The Weavers",
+      "album": "Goodnight Irene (Single)",
+      "releaseDate": "1950",
+      "genres": ["Folk", "Traditional Pop"],
+      "description": "1950년 미국 대중음악을 대표하는 초대형 히트곡으로, 포크 음악이 대중 차트 중심에 오를 수 있음을 보여준 곡입니다.",
+      "youtubeId": "MSDyiUBrUSk"
+    },
+    {
+      "song": "Mona Lisa",
+      "artist": "Nat King Cole",
+      "album": "Mona Lisa (Single)",
+      "releaseDate": "1950",
+      "genres": ["Traditional Pop", "Vocal Jazz"],
+      "description": "냇 킹 콜의 부드러운 보컬을 대표하는 스탠더드 팝 명곡으로, 1950년대 미국 보컬 팝의 품격을 상징합니다.",
+      "youtubeId": "NIDX18Xl16s"
+    },
+    {
+      "song": "Music! Music! Music!",
+      "artist": "Teresa Brewer",
+      "album": "Music! Music! Music! (Single)",
+      "releaseDate": "1950",
+      "genres": ["Traditional Pop", "Novelty Pop"],
+      "description": "밝고 중독적인 후렴으로 큰 인기를 얻은 곡으로, 전후 미국 대중가요의 낙관적 분위기를 잘 보여줍니다.",
+      "youtubeId": "HXYwP6PNYRA"
+    }
+  ],
+  "1951": [
+    {
+      "song": "Too Young",
+      "artist": "Nat King Cole",
+      "album": "Too Young (Single)",
+      "releaseDate": "1951",
+      "genres": ["Traditional Pop", "Vocal Jazz"],
+      "description": "냇 킹 콜의 대표적인 로맨틱 발라드로, 1950년대 초반 미국 팝 보컬의 정서를 상징하는 곡입니다.",
+      "youtubeId": "KaFtsqU2V6U"
+    },
+    {
+      "song": "Because of You",
+      "artist": "Tony Bennett",
+      "album": "Because of You (Single)",
+      "releaseDate": "1951",
+      "genres": ["Traditional Pop", "Vocal Pop"],
+      "description": "토니 베넷을 대중적으로 알린 대표곡으로, 1950년대 미국 남성 보컬 팝의 전성기를 보여줍니다.",
+      "youtubeId": "KOkVX5i8qKw"
+    },
+    {
+      "song": "How High the Moon",
+      "artist": "Les Paul and Mary Ford",
+      "album": "How High the Moon (Single)",
+      "releaseDate": "1951",
+      "genres": ["Jazz Pop", "Traditional Pop"],
+      "description": "멀티트랙 녹음과 기타 사운드의 혁신을 대중음악 안으로 끌어온 곡으로, 녹음 기술사에서도 중요한 작품입니다.",
+      "youtubeId": "NkGf1GHAxhE"
+    }
+  ],
+  "1952": [
+    {
+      "song": "Blue Tango",
+      "artist": "Leroy Anderson",
+      "album": "Blue Tango (Single)",
+      "releaseDate": "1952",
+      "genres": ["Easy Listening", "Orchestral Pop"],
+      "description": "오케스트라 팝이 대중 차트에서 강한 영향력을 가졌던 시기를 보여주는 대표적인 연주곡입니다.",
+      "youtubeId": "PJo_kbS0Y2E"
+    },
+    {
+      "song": "Wheel of Fortune",
+      "artist": "Kay Starr",
+      "album": "Wheel of Fortune (Single)",
+      "releaseDate": "1952",
+      "genres": ["Traditional Pop", "Vocal Pop"],
+      "description": "케이 스타의 강렬한 보컬이 돋보이는 히트곡으로, 1950년대 초 여성 보컬 팝의 대표적인 성공 사례입니다.",
+      "youtubeId": "OeIce5NsWKk"
+    },
+    {
+      "song": "You Belong to Me",
+      "artist": "Jo Stafford",
+      "album": "You Belong to Me (Single)",
+      "releaseDate": "1952",
+      "genres": ["Traditional Pop", "Ballad"],
+      "description": "전쟁 이후의 그리움과 로맨스를 담은 발라드로, 여러 세대에 걸쳐 리메이크된 미국 팝 스탠더드입니다.",
+      "youtubeId": "zQfF84ackMM"
+    }
+  ],
+  "1953": [
+    {
+      "song": "The Song from Moulin Rouge",
+      "artist": "Percy Faith featuring Felicia Sanders",
+      "album": "The Song from Moulin Rouge (Single)",
+      "releaseDate": "1953",
+      "genres": ["Easy Listening", "Traditional Pop"],
+      "description": "영화 음악과 오케스트라 팝이 결합된 대표적인 히트곡으로, 1953년 미국 대중음악의 주류 감성을 보여줍니다.",
+      "youtubeId": "FhdiXyEBmh0"
+    },
+    {
+      "song": "Vaya con Dios",
+      "artist": "Les Paul and Mary Ford",
+      "album": "Vaya con Dios (Single)",
+      "releaseDate": "1953",
+      "genres": ["Traditional Pop", "Country Pop"],
+      "description": "레코딩 기술과 보컬 하모니가 돋보이는 곡으로, 레스 폴과 메리 포드의 전성기를 대표합니다.",
+      "youtubeId": "QqZ0Sdz_V40"
+    },
+    {
+      "song": "Hound Dog",
+      "artist": "Big Mama Thornton",
+      "album": "Hound Dog (Single)",
+      "releaseDate": "1953",
+      "genres": ["Rhythm and Blues", "Blues"],
+      "description": "후대 록앤롤의 방향을 예고한 강렬한 R&B 곡으로, 엘비스 프레슬리 버전 이전의 원형적 에너지를 들려줍니다.",
+      "youtubeId": "yoHDrzw-RPg"
+    }
+  ],
+  "1954": [
+    {
+      "song": "Sh-Boom",
+      "artist": "The Chords",
+      "album": "Sh-Boom (Single)",
+      "releaseDate": "1954",
+      "genres": ["Doo-wop", "Rhythm and Blues"],
+      "description": "두왑과 R&B가 팝 시장으로 확장되는 흐름을 보여준 곡으로, 1950년대 중반 보컬 그룹 사운드의 전환점을 상징합니다.",
+      "youtubeId": "H6LaAUGAu4U"
+    },
+    {
+      "song": "Rock Around the Clock",
+      "artist": "Bill Haley & His Comets",
+      "album": "Rock Around the Clock (Single)",
+      "releaseDate": "1954",
+      "genres": ["Rock and Roll", "Rockabilly"],
+      "description": "1950년대 록앤롤 대중화를 상징하는 곡으로, 이후 영화와 함께 전 세계적인 록 열풍의 기폭제가 되었습니다.",
+      "youtubeId": "ZgdufzXvjqw"
+    },
+    {
+      "song": "That's All Right",
+      "artist": "Elvis Presley",
+      "album": "That's All Right (Single)",
+      "releaseDate": "1954",
+      "genres": ["Rockabilly", "Rock and Roll"],
+      "description": "엘비스 프레슬리의 첫 싱글로, 컨트리와 블루스가 결합된 로커빌리 사운드의 출발점으로 평가됩니다.",
+      "youtubeId": "iitquX6vNJU"
+    }
+  ],
+  "1955": [
+    {
+      "song": "Maybellene",
+      "artist": "Chuck Berry",
+      "album": "Maybellene (Single)",
+      "releaseDate": "1955",
+      "genres": ["Rock and Roll", "Rhythm and Blues"],
+      "description": "척 베리의 데뷔 히트곡으로, 기타 리프와 자동차·청춘 서사를 결합해 록앤롤의 언어를 정립한 곡입니다.",
+      "youtubeId": "75RiHJGfyUE"
+    },
+    {
+      "song": "Tutti Frutti",
+      "artist": "Little Richard",
+      "album": "Tutti Frutti (Single)",
+      "releaseDate": "1955",
+      "genres": ["Rock and Roll", "Rhythm and Blues"],
+      "description": "리틀 리처드의 폭발적인 보컬과 에너지가 담긴 곡으로, 록앤롤의 원초적 힘을 대표하는 고전입니다.",
+      "youtubeId": "F13JNjpNW6c"
+    },
+    {
+      "song": "Sixteen Tons",
+      "artist": "Tennessee Ernie Ford",
+      "album": "Sixteen Tons (Single)",
+      "releaseDate": "1955",
+      "genres": ["Country", "Folk"],
+      "description": "노동자의 삶과 부채의 무게를 낮고 묵직한 목소리로 담아낸 곡으로, 컨트리와 포크의 사회적 서사를 대중화했습니다.",
+      "youtubeId": "RRh0QiXyZSk"
+    }
+  ],
+  "1956": [
+    {
+      "song": "Heartbreak Hotel",
+      "artist": "Elvis Presley",
+      "album": "Heartbreak Hotel (Single)",
+      "releaseDate": "1956",
+      "genres": ["Rock and Roll", "Rockabilly"],
+      "description": "엘비스 프레슬리를 미국 대중음악의 중심으로 끌어올린 곡으로, 1950년대 록 스타 시대의 개막을 알렸습니다.",
+      "youtubeId": "e9BLw4W5KU8"
+    },
+    {
+      "song": "Hound Dog",
+      "artist": "Elvis Presley",
+      "album": "Hound Dog (Single)",
+      "releaseDate": "1956",
+      "genres": ["Rock and Roll", "Rockabilly"],
+      "description": "엘비스식 록앤롤 퍼포먼스를 대중에게 각인시킨 대표곡으로, TV 시대의 스타성과 음악적 충격을 함께 보여줍니다.",
+      "youtubeId": "-eHJ12Vhpyc"
+    },
+    {
+      "song": "Blue Suede Shoes",
+      "artist": "Carl Perkins",
+      "album": "Blue Suede Shoes (Single)",
+      "releaseDate": "1956",
+      "genres": ["Rockabilly", "Rock and Roll"],
+      "description": "선 레코드 로커빌리의 핵심 곡으로, 기타 중심의 리듬과 청춘 문화의 감각을 선명하게 드러냅니다.",
+      "youtubeId": "UAANY_g4IGY"
+    }
+  ],
+  "1957": [
+    {
+      "song": "Jailhouse Rock",
+      "artist": "Elvis Presley",
+      "album": "Jailhouse Rock (Single)",
+      "releaseDate": "1957",
+      "genres": ["Rock and Roll", "Rockabilly"],
+      "description": "동명 영화와 함께 발표된 엘비스의 대표곡으로, 음악·영화·댄스가 결합된 1950년대 스타 시스템을 상징합니다.",
+      "youtubeId": "gj0Rz-uP4Mk"
+    },
+    {
+      "song": "That'll Be the Day",
+      "artist": "The Crickets",
+      "album": "That'll Be the Day (Single)",
+      "releaseDate": "1957",
+      "genres": ["Rock and Roll", "Rockabilly"],
+      "description": "버디 홀리와 더 크리케츠를 대표하는 곡으로, 이후 밴드형 록 음악과 싱어송라이터 록의 중요한 모델이 되었습니다.",
+      "youtubeId": "s3bG-CMS8Mo"
+    },
+    {
+      "song": "Great Balls of Fire",
+      "artist": "Jerry Lee Lewis",
+      "album": "Great Balls of Fire (Single)",
+      "releaseDate": "1957",
+      "genres": ["Rock and Roll", "Rockabilly"],
+      "description": "제리 리 루이스의 격렬한 피아노 연주와 보컬이 결합된 곡으로, 1950년대 록앤롤의 광기와 에너지를 대표합니다.",
+      "youtubeId": "Jt0mg8Z09SY"
+    }
+  ],
+  "1958": [
+    {
+      "song": "Johnny B. Goode",
+      "artist": "Chuck Berry",
+      "album": "Johnny B. Goode (Single)",
+      "releaseDate": "1958",
+      "genres": ["Rock and Roll", "Rhythm and Blues"],
+      "description": "기타리스트 청춘 영웅의 서사를 담은 록앤롤의 교과서 같은 곡으로, 이후 록 기타 음악의 기준점이 되었습니다.",
+      "youtubeId": "6ROwVrF0Ceg"
+    },
+    {
+      "song": "All I Have to Do Is Dream",
+      "artist": "The Everly Brothers",
+      "album": "All I Have to Do Is Dream (Single)",
+      "releaseDate": "1958",
+      "genres": ["Pop", "Country Pop", "Rock and Roll"],
+      "description": "형제 듀오의 완벽한 하모니가 돋보이는 곡으로, 컨트리 팝과 로큰롤 보컬 화음의 연결고리를 보여줍니다.",
+      "youtubeId": "tbU3zdAgiX8"
+    },
+    {
+      "song": "Summertime Blues",
+      "artist": "Eddie Cochran",
+      "album": "Summertime Blues (Single)",
+      "releaseDate": "1958",
+      "genres": ["Rock and Roll", "Rockabilly"],
+      "description": "청소년의 불만과 여름의 에너지를 유머러스하게 담은 곡으로, 후대 록 밴드들에게 반복적으로 리메이크된 고전입니다.",
+      "youtubeId": "zdIqME_JLaU"
+    }
+  ],
+  "1959": [
+    {
+      "song": "What'd I Say",
+      "artist": "Ray Charles",
+      "album": "What'd I Say (Single)",
+      "releaseDate": "1959",
+      "genres": ["Soul", "Rhythm and Blues"],
+      "description": "가스펠, R&B, 블루스의 감각을 결합해 소울 음악의 방향을 제시한 레이 찰스의 결정적인 곡입니다.",
+      "youtubeId": "6uTDa3771HM"
+    },
+    {
+      "song": "Mack the Knife",
+      "artist": "Bobby Darin",
+      "album": "Mack the Knife (Single)",
+      "releaseDate": "1959",
+      "genres": ["Traditional Pop", "Swing", "Jazz Pop"],
+      "description": "스윙과 팝 보컬의 세련된 결합으로 1959년을 대표한 히트곡이며, 바비 대린의 대표작으로 남았습니다.",
+      "youtubeId": "557lFG-qq5g"
+    },
+    {
+      "song": "The Battle of New Orleans",
+      "artist": "Johnny Horton",
+      "album": "The Battle of New Orleans (Single)",
+      "releaseDate": "1959",
+      "genres": ["Country", "Novelty", "Folk"],
+      "description": "역사 서사를 유쾌한 컨트리 팝으로 풀어낸 곡으로, 1959년 미국 팝과 컨트리 차트 모두에서 큰 성공을 거두었습니다.",
+      "youtubeId": "9CnPv_1SVh0"
+    }
+  ],
+    "1960": [
+    {
+      "song": "The Twist",
+      "artist": "Chubby Checker",
+      "album": "The Twist (Single)",
+      "releaseDate": "1960",
+      "genres": ["Rock and Roll", "Dance-pop"],
+      "description": "트위스트 춤 열풍을 전 세계적으로 확산시킨 곡으로, 1960년대 초 미국 대중문화에서 댄스 음악의 힘을 보여준 대표작입니다.",
+      "youtubeId": "-CCgDvUM4TM"
+    },
+    {
+      "song": "Georgia on My Mind",
+      "artist": "Ray Charles",
+      "album": "The Genius Hits the Road",
+      "releaseDate": "1960",
+      "genres": ["Soul", "Rhythm and Blues", "Vocal Pop"],
+      "description": "레이 찰스의 깊은 소울 감성과 재즈적 해석이 돋보이는 곡으로, 이후 조지아주의 공식 주가가 될 만큼 미국적 정서를 상징하게 되었습니다.",
+      "youtubeId": "ggGzE5KfCio"
+    },
+    {
+      "song": "Save the Last Dance for Me",
+      "artist": "The Drifters",
+      "album": "Save the Last Dance for Me (Single)",
+      "releaseDate": "1960",
+      "genres": ["Soul", "Pop", "Doo-wop"],
+      "description": "벤 E. 킹의 리드 보컬과 세련된 소울 팝 편곡이 어우러진 곡으로, 1960년대 초 보컬 그룹 사운드의 정점을 보여줍니다.",
+      "youtubeId": "6a2ndlJ2ym4"
+    }
+  ],
+  "1961": [
+    {
+      "song": "Stand by Me",
+      "artist": "Ben E. King",
+      "album": "Stand by Me (Single)",
+      "releaseDate": "1961",
+      "genres": ["Soul", "Rhythm and Blues", "Pop"],
+      "description": "단순하지만 강렬한 베이스 라인과 따뜻한 보컬로 세대를 넘어 사랑받은 곡으로, 미국 소울 팝의 대표적인 스탠더드입니다.",
+      "youtubeId": "hwZNL7QVJjE"
+    },
+    {
+      "song": "Will You Love Me Tomorrow",
+      "artist": "The Shirelles",
+      "album": "Tonight's the Night",
+      "releaseDate": "1961",
+      "genres": ["Girl Group", "Doo-wop", "Pop"],
+      "description": "걸그룹이 Billboard Hot 100 1위에 오른 중요한 사례로, 1960년대 초 여성 보컬 그룹 시대의 본격적인 시작을 알린 곡입니다.",
+      "youtubeId": "evAi9qz9WQs"
+    },
+    {
+      "song": "Hit the Road Jack",
+      "artist": "Ray Charles",
+      "album": "Hit the Road Jack (Single)",
+      "releaseDate": "1961",
+      "genres": ["Rhythm and Blues", "Soul"],
+      "description": "콜 앤 리스폰스 형식과 강한 리듬감이 돋보이는 레이 찰스의 대표곡으로, 짧고 강렬한 R&B 팝 히트의 전형을 보여줍니다.",
+      "youtubeId": "uSiHqxgE2d0"
+    }
+  ],
+  "1962": [
+    {
+      "song": "Surfin' Safari",
+      "artist": "The Beach Boys",
+      "album": "Surfin' Safari",
+      "releaseDate": "1962.06.04",
+      "genres": ["Surf Rock", "Pop Rock"],
+      "description": "비치 보이스의 초기 대표곡으로, 캘리포니아 서핑 문화와 청춘 이미지를 미국 팝 음악의 중심으로 끌어올린 곡입니다.",
+      "youtubeId": "tMnqV26Njxo"
+    },
+    {
+      "song": "Green Onions",
+      "artist": "Booker T. & the M.G.'s",
+      "album": "Green Onions",
+      "releaseDate": "1962",
+      "genres": ["Soul", "Rhythm and Blues", "Instrumental"],
+      "description": "오르간 리프가 인상적인 스택스 소울의 대표 연주곡으로, 멤피스 소울 사운드의 상징적인 출발점 중 하나입니다.",
+      "youtubeId": "0oox9bJaGJ8"
+    },
+    {
+      "song": "The Loco-Motion",
+      "artist": "Little Eva",
+      "album": "The Loco-Motion (Single)",
+      "releaseDate": "1962",
+      "genres": ["Pop", "Dance-pop", "Girl Group"],
+      "description": "캐럴 킹과 제리 고핀의 송라이팅이 빛나는 댄스 팝 히트곡으로, 따라 하기 쉬운 춤과 후렴으로 1960년대 초 대중적 인기를 얻었습니다.",
+      "youtubeId": "1Lej7aQDrGM"
+    }
+  ],
+  "1963": [
+    {
+      "song": "Be My Baby",
+      "artist": "The Ronettes",
+      "album": "Presenting the Fabulous Ronettes Featuring Veronica",
+      "releaseDate": "1963",
+      "genres": ["Girl Group", "Pop", "Rhythm and Blues"],
+      "description": "필 스펙터의 월 오브 사운드 프로덕션을 대표하는 곡으로, 1960년대 팝 음악 제작 방식에 큰 영향을 준 명곡입니다.",
+      "youtubeId": "jSPpbOGnFgk"
+    },
+    {
+      "song": "Blowin' in the Wind",
+      "artist": "Bob Dylan",
+      "album": "The Freewheelin' Bob Dylan",
+      "releaseDate": "1963.08.13",
+      "genres": ["Folk", "Protest Song", "Singer-Songwriter"],
+      "description": "평화와 자유, 인권에 대한 질문을 담은 포크 명곡으로, 1960년대 미국 시민권 운동과 저항 문화의 상징적인 노래가 되었습니다.",
+      "youtubeId": "MMFj8uDubsE"
+    },
+    {
+      "song": "Surfin' U.S.A.",
+      "artist": "The Beach Boys",
+      "album": "Surfin' U.S.A.",
+      "releaseDate": "1963.03.04",
+      "genres": ["Surf Rock", "Rock and Roll", "Pop Rock"],
+      "description": "척 베리식 로큰롤 리듬에 서핑 문화를 결합한 곡으로, 비치 보이스를 미국 청춘 팝의 대표 밴드로 각인시켰습니다.",
+      "youtubeId": "KcZn05qxVgg"
+    }
+  ],
+  "1964": [
+    {
+      "song": "Dancing in the Street",
+      "artist": "Martha and the Vandellas",
+      "album": "Dancing in the Street (Single)",
+      "releaseDate": "1964",
+      "genres": ["Motown", "Soul", "Pop"],
+      "description": "모타운 특유의 경쾌한 리듬과 거리의 해방감을 담은 곡으로, 1960년대 미국 도시 문화와 소울 팝의 에너지를 대표합니다.",
+      "youtubeId": "aEWyZC8tvgU"
+    },
+    {
+      "song": "Where Did Our Love Go",
+      "artist": "The Supremes",
+      "album": "Where Did Our Love Go",
+      "releaseDate": "1964.06.17",
+      "genres": ["Motown", "Girl Group", "Soul Pop"],
+      "description": "슈프림스를 모타운의 대표 걸그룹으로 만든 곡으로, 이후 이어지는 연속 1위 행진의 출발점이 되었습니다.",
+      "youtubeId": "Jt_31gR18NA"
+    },
+    {
+      "song": "A Change Is Gonna Come",
+      "artist": "Sam Cooke",
+      "album": "Ain't That Good News",
+      "releaseDate": "1964.12.22",
+      "genres": ["Soul", "Rhythm and Blues", "Protest Song"],
+      "description": "시민권 운동의 정서를 담은 소울 발라드로, 샘 쿡의 음악적 깊이와 1960년대 미국 사회의 변화를 상징하는 곡입니다.",
+      "youtubeId": "wEBlaMOmKV4"
+    }
+  ],
+  "1965": [
+    {
+      "song": "Like a Rolling Stone",
+      "artist": "Bob Dylan",
+      "album": "Highway 61 Revisited",
+      "releaseDate": "1965",
+      "genres": ["Folk Rock", "Singer-Songwriter", "Rock"],
+      "description": "6분이 넘는 길이와 시적인 가사, 밴드 사운드의 결합으로 록 음악의 표현 범위를 크게 확장한 1960년대 핵심 작품입니다.",
+      "youtubeId": "syNLBJ_Lq9E"
+    },
+    {
+      "song": "Papa's Got a Brand New Bag",
+      "artist": "James Brown and The Famous Flames",
+      "album": "Papa's Got a Brand New Bag (Single)",
+      "releaseDate": "1965",
+      "genres": ["Soul", "Funk", "Rhythm and Blues"],
+      "description": "제임스 브라운의 리듬 혁신이 본격화된 곡으로, 훗날 funk 장르가 독립적인 흐름으로 자리 잡는 데 중요한 역할을 했습니다.",
+      "youtubeId": "FshOJzeu_dc"
+    },
+    {
+      "song": "California Girls",
+      "artist": "The Beach Boys",
+      "album": "Summer Days (And Summer Nights!!)",
+      "releaseDate": "1965",
+      "genres": ["Pop Rock", "Surf Pop", "Baroque Pop"],
+      "description": "브라이언 윌슨의 세련된 편곡과 비치 보이스의 화음이 돋보이는 곡으로, 캘리포니아 팝 이미지를 전 세계적으로 각인시켰습니다.",
+      "youtubeId": "DR2lvcdKSdU"
+    }
+  ],
+  "1966": [
+    {
+      "song": "Good Vibrations",
+      "artist": "The Beach Boys",
+      "album": "Good Vibrations (Single)",
+      "releaseDate": "1966",
+      "genres": ["Psychedelic Pop", "Art Pop", "Pop Rock"],
+      "description": "복잡한 녹음 방식과 독창적인 구조를 통해 1960년대 스튜디오 팝의 가능성을 극대화한 비치 보이스의 대표작입니다.",
+      "youtubeId": "apBWI6xrbLY"
+    },
+    {
+      "song": "When a Man Loves a Woman",
+      "artist": "Percy Sledge",
+      "album": "When a Man Loves a Woman",
+      "releaseDate": "1966",
+      "genres": ["Soul", "Southern Soul", "Ballad"],
+      "description": "퍼시 슬레지의 절절한 보컬이 돋보이는 서던 소울 발라드로, 1960년대 미국 소울 음악의 감정적 깊이를 대표합니다.",
+      "youtubeId": "6meW-K-1e7Q"
+    },
+    {
+      "song": "Reach Out I'll Be There",
+      "artist": "Four Tops",
+      "album": "Reach Out",
+      "releaseDate": "1966.08.18",
+      "genres": ["Motown", "Soul", "Pop"],
+      "description": "리바이 스텁스의 격정적인 보컬과 드라마틱한 편곡이 결합된 모타운의 대표곡으로, 1960년대 소울 팝의 절정을 보여줍니다.",
+      "youtubeId": "1v4twH9KbnU"
+    }
+  ],
+  "1967": [
+    {
+      "song": "Respect",
+      "artist": "Aretha Franklin",
+      "album": "I Never Loved a Man the Way I Love You",
+      "releaseDate": "1967",
+      "genres": ["Soul", "Rhythm and Blues"],
+      "description": "아레사 프랭클린을 '소울의 여왕'으로 각인시킨 곡으로, 여성의 자존감과 권리 의식을 상징하는 시대적 찬가가 되었습니다.",
+      "youtubeId": "JzqGZjFnYnA"
+    },
+    {
+      "song": "Light My Fire",
+      "artist": "The Doors",
+      "album": "The Doors",
+      "releaseDate": "1967.04.24",
+      "genres": ["Psychedelic Rock", "Acid Rock", "Rock"],
+      "description": "긴 오르간 솔로와 몽환적인 분위기가 인상적인 곡으로, 1960년대 미국 사이키델릭 록과 반문화의 상징으로 자리 잡았습니다.",
+      "youtubeId": "jKU74Uns9_0"
+    },
+    {
+      "song": "Somebody to Love",
+      "artist": "Jefferson Airplane",
+      "album": "Surrealistic Pillow",
+      "releaseDate": "1967",
+      "genres": ["Psychedelic Rock", "Acid Rock"],
+      "description": "그레이스 슬릭의 강렬한 보컬이 돋보이는 곡으로, 샌프란시스코 히피 문화와 사이키델릭 록의 확산을 대표합니다.",
+      "youtubeId": "RD4TFzkY5F0"
+    }
+  ],
+  "1968": [
+    {
+      "song": "Mrs. Robinson",
+      "artist": "Simon & Garfunkel",
+      "album": "Bookends",
+      "releaseDate": "1968",
+      "genres": ["Folk Rock", "Pop Rock"],
+      "description": "영화 '졸업'과 함께 1960년대 미국 청년 세대의 불안과 냉소를 상징하게 된 사이먼 앤 가펑클의 대표곡입니다.",
+      "youtubeId": "_C2vqI9FVwg"
+    },
+    {
+      "song": "(Sittin' On) The Dock of the Bay",
+      "artist": "Otis Redding",
+      "album": "The Dock of the Bay",
+      "releaseDate": "1968",
+      "genres": ["Soul", "Southern Soul", "Rhythm and Blues"],
+      "description": "오티스 레딩 사후 발표되어 큰 성공을 거둔 곡으로, 기존의 격정적인 소울과 달리 성찰적이고 담담한 분위기가 인상적입니다.",
+      "youtubeId": "rTVjnBo96Ug"
+    },
+    {
+      "song": "Born to Be Wild",
+      "artist": "Steppenwolf",
+      "album": "Steppenwolf",
+      "releaseDate": "1968",
+      "genres": ["Hard Rock", "Psychedelic Rock", "Proto-metal"],
+      "description": "거친 기타 사운드와 자유로운 질주감을 담은 곡으로, 이후 영화 'Easy Rider'와 함께 미국 로드 무비·바이커 문화의 상징이 되었습니다.",
+      "youtubeId": "igvP806798U"
+    }
+  ],
+  "1969": [
+    {
+      "song": "Everyday People",
+      "artist": "Sly and the Family Stone",
+      "album": "Stand!",
+      "releaseDate": "1969",
+      "genres": ["Funk", "Soul", "Psychedelic Soul"],
+      "description": "인종과 개성을 넘어선 공존의 메시지를 담은 곡으로, 펑크와 소울, 록을 결합한 슬라이 앤 더 패밀리 스톤의 대표작입니다.",
+      "youtubeId": "3JvkaUvB-ec"
+    },
+    {
+      "song": "Fortunate Son",
+      "artist": "Creedence Clearwater Revival",
+      "album": "Willy and the Poor Boys",
+      "releaseDate": "1969",
+      "genres": ["Roots Rock", "Swamp Rock", "Protest Rock"],
+      "description": "베트남전 시기의 계급 불평등과 징병 문제를 날카롭게 비판한 곡으로, 미국 록 역사에서 가장 강력한 반전가요 중 하나입니다.",
+      "youtubeId": "ZWijx_AgPiA"
+    },
+    {
+      "song": "I Want You Back",
+      "artist": "The Jackson 5",
+      "album": "Diana Ross Presents The Jackson 5",
+      "releaseDate": "1969.10.07",
+      "genres": ["Motown", "Soul Pop", "Bubblegum Pop"],
+      "description": "잭슨 5의 모타운 데뷔 싱글로, 어린 마이클 잭슨의 폭발적인 보컬과 경쾌한 편곡이 결합된 1960년대 말 팝 소울의 대표곡입니다.",
+      "youtubeId": "UvynvnxZJ3Q"
+    }
+  ],
+  "1970": [
+    {
+      "song": "Bridge Over Troubled Water",
+      "artist": "Simon & Garfunkel",
+      "album": "Bridge Over Troubled Water",
+      "releaseDate": "1970.01.26",
+      "genres": ["Folk Rock", "Soft Rock", "Pop"],
+      "description": "사이먼 앤 가펑클의 마지막 정규 앨범을 대표하는 곡으로, 1970년대 초 미국 팝 발라드의 정점이자 세대를 넘어 사랑받는 명곡입니다.",
+      "youtubeId": "4G-YQA_bsOU"
+    },
+    {
+      "song": "War",
+      "artist": "Edwin Starr",
+      "album": "War & Peace",
+      "releaseDate": "1970",
+      "genres": ["Soul", "Funk", "Protest Song"],
+      "description": "베트남전 반전 정서를 직설적으로 담은 곡으로, 강렬한 후렴과 소울·펑크 사운드가 결합된 1970년대 대표 저항가요입니다.",
+      "youtubeId": "dQHUAJTZqF0"
+    },
+    {
+      "song": "I'll Be There",
+      "artist": "The Jackson 5",
+      "album": "Third Album",
+      "releaseDate": "1970.09.08",
+      "genres": ["Soul", "Motown", "Pop"],
+      "description": "어린 마이클 잭슨의 감성적인 보컬이 돋보이는 곡으로, 잭슨 5가 모타운의 핵심 그룹으로 자리 잡는 데 결정적인 역할을 했습니다.",
+      "youtubeId": "kBhSh7y_IkM"
+    }
+  ],
+  "1971": [
+    {
+      "song": "What's Going On",
+      "artist": "Marvin Gaye",
+      "album": "What's Going On",
+      "releaseDate": "1971.05.21",
+      "genres": ["Soul", "R&B", "Social Soul"],
+      "description": "전쟁, 빈곤, 환경, 인종 문제를 하나의 앨범 서사로 묶어낸 마빈 게이의 대표작으로, 소울 음악의 예술적 가능성을 크게 확장했습니다.",
+      "youtubeId": "o5TmORitlKk"
+    },
+    {
+      "song": "American Pie",
+      "artist": "Don McLean",
+      "album": "American Pie",
+      "releaseDate": "1971.10.24",
+      "genres": ["Folk Rock", "Singer-Songwriter"],
+      "description": "1950~60년대 미국 록 음악의 상실과 변화를 은유적으로 노래한 대곡으로, 미국 싱어송라이터 음악의 대표적인 고전입니다.",
+      "youtubeId": "PRpiBpDy7MQ"
+    },
+    {
+      "song": "Ain't No Sunshine",
+      "artist": "Bill Withers",
+      "album": "Just As I Am",
+      "releaseDate": "1971.05",
+      "genres": ["Soul", "R&B", "Singer-Songwriter"],
+      "description": "짧고 절제된 구성 안에 깊은 그리움과 공허함을 담아낸 곡으로, 빌 위더스의 따뜻하면서도 쓸쓸한 보컬을 대표합니다.",
+      "youtubeId": "YuKfiH0Scao"
+    }
+  ],
+  "1972": [
+    {
+      "song": "Superstition",
+      "artist": "Stevie Wonder",
+      "album": "Talking Book",
+      "releaseDate": "1972.10.28",
+      "genres": ["Funk", "Soul", "R&B"],
+      "description": "클라비넷 리프와 탄탄한 그루브가 인상적인 곡으로, 스티비 원더의 1970년대 창작 전성기를 상징하는 대표작입니다.",
+      "youtubeId": "ftdZ363R9kQ"
+    },
+    {
+      "song": "Lean on Me",
+      "artist": "Bill Withers",
+      "album": "Still Bill",
+      "releaseDate": "1972.05",
+      "genres": ["Soul", "Gospel", "Pop"],
+      "description": "서로 기대고 살아가는 공동체적 메시지를 담은 곡으로, 단순한 멜로디와 진심 어린 가사 덕분에 미국 대중음악의 표준곡처럼 자리 잡았습니다.",
+      "youtubeId": "fOZ-MySzAac"
+    },
+    {
+      "song": "Papa Was a Rollin' Stone",
+      "artist": "The Temptations",
+      "album": "All Directions",
+      "releaseDate": "1972.07.27",
+      "genres": ["Psychedelic Soul", "Funk", "Motown"],
+      "description": "긴 인트로와 어두운 편곡, 사회적 서사가 결합된 곡으로, 모타운 사운드가 보다 실험적이고 성숙한 방향으로 확장된 사례입니다.",
+      "youtubeId": "71l85z2bXAs"
+    }
+  ],
+  "1973": [
+    {
+      "song": "Let's Get It On",
+      "artist": "Marvin Gaye",
+      "album": "Let's Get It On",
+      "releaseDate": "1973.08.28",
+      "genres": ["Soul", "R&B", "Quiet Storm"],
+      "description": "마빈 게이의 관능적이고 부드러운 보컬이 돋보이는 곡으로, 1970년대 소울 음악의 낭만적이고 성숙한 흐름을 대표합니다.",
+      "youtubeId": "AqPBfbLoF_M"
+    },
+    {
+      "song": "Killing Me Softly with His Song",
+      "artist": "Roberta Flack",
+      "album": "Killing Me Softly",
+      "releaseDate": "1973.08.01",
+      "genres": ["Soul", "Pop", "Vocal"],
+      "description": "섬세한 보컬과 우아한 편곡으로 큰 사랑을 받은 곡으로, 로버타 플랙을 1970년대 최고의 여성 보컬리스트 중 한 명으로 각인시켰습니다.",
+      "youtubeId": "DEbi_YjpA-Y"
+    },
+    {
+      "song": "Free Bird",
+      "artist": "Lynyrd Skynyrd",
+      "album": "(Pronounced 'Lĕh-'nérd 'Skin-'nérd)",
+      "releaseDate": "1973.08.13",
+      "genres": ["Southern Rock", "Hard Rock"],
+      "description": "후반부의 긴 기타 솔로로 유명한 서던 록의 대표곡으로, 미국 록 밴드 음악에서 자유와 질주의 이미지를 상징합니다.",
+      "youtubeId": "0LwcvjNJTuM"
+    }
+  ],
+  "1974": [
+    {
+      "song": "Sweet Home Alabama",
+      "artist": "Lynyrd Skynyrd",
+      "album": "Second Helping",
+      "releaseDate": "1974.04.15",
+      "genres": ["Southern Rock", "Country Rock"],
+      "description": "서던 록의 정체성을 가장 대중적으로 각인시킨 곡으로, 강렬한 기타 리프와 지역적 자부심이 결합된 1970년대 미국 록의 상징입니다.",
+      "youtubeId": "ye5BuYf8q4o"
+    },
+    {
+      "song": "I Will Always Love You",
+      "artist": "Dolly Parton",
+      "album": "Jolene",
+      "releaseDate": "1974.02.04",
+      "genres": ["Country", "Ballad"],
+      "description": "돌리 파튼이 직접 작곡한 컨트리 발라드로, 훗날 여러 세대의 리메이크를 통해 더욱 널리 알려진 미국 컨트리 음악의 대표곡입니다.",
+      "youtubeId": "lKsQR72HY0s"
+    },
+    {
+      "song": "Rock Your Baby",
+      "artist": "George McCrae",
+      "album": "Rock Your Baby",
+      "releaseDate": "1974",
+      "genres": ["Disco", "Soul", "R&B"],
+      "description": "초기 디스코 사운드를 대중 차트 중심으로 끌어올린 곡으로, 1970년대 중반 디스코 붐의 중요한 출발점으로 평가됩니다.",
+      "youtubeId": "6Q15-kql1YE"
+    }
+  ],
+  "1975": [
+    {
+      "song": "Born to Run",
+      "artist": "Bruce Springsteen",
+      "album": "Born to Run",
+      "releaseDate": "1975.08.25",
+      "genres": ["Rock", "Heartland Rock"],
+      "description": "미국 노동계급 청춘의 탈출 욕망과 낭만을 웅장한 록 사운드로 풀어낸 곡으로, 브루스 스프링스틴의 대표작입니다.",
+      "youtubeId": "IxuThNgl3YA"
+    },
+    {
+      "song": "That's the Way (I Like It)",
+      "artist": "KC and the Sunshine Band",
+      "album": "KC and the Sunshine Band",
+      "releaseDate": "1975",
+      "genres": ["Disco", "Funk", "Dance-pop"],
+      "description": "반복적인 후렴과 댄서블한 리듬으로 디스코 시대의 대중적 쾌감을 보여준 곡이며, 1970년대 중반 댄스 음악을 대표합니다.",
+      "youtubeId": "q3svW8PM_jc"
+    },
+    {
+      "song": "Walk This Way",
+      "artist": "Aerosmith",
+      "album": "Toys in the Attic",
+      "releaseDate": "1975.04.08",
+      "genres": ["Hard Rock", "Blues Rock"],
+      "description": "강렬한 기타 리프와 리듬감 있는 보컬이 돋보이는 에어로스미스의 대표곡으로, 후대 록과 힙합의 접점에도 큰 영향을 남겼습니다.",
+      "youtubeId": "4c8O2n1Gfto"
+    }
+  ],
+  "1976": [
+    {
+      "song": "Hotel California",
+      "artist": "Eagles",
+      "album": "Hotel California",
+      "releaseDate": "1976.12.08",
+      "genres": ["Rock", "Soft Rock", "Country Rock"],
+      "description": "미국 서부의 환상과 공허함을 상징적으로 담아낸 곡으로, 이글스의 정교한 보컬 하모니와 기타 솔로가 돋보이는 1970년대 록의 대표작입니다.",
+      "youtubeId": "BciS5krYL80"
+    },
+    {
+      "song": "Play That Funky Music",
+      "artist": "Wild Cherry",
+      "album": "Wild Cherry",
+      "releaseDate": "1976.04",
+      "genres": ["Funk Rock", "Disco", "Rock"],
+      "description": "펑크와 록, 디스코의 에너지를 결합한 곡으로, 1970년대 중반 미국 클럽 문화와 라디오 히트의 접점을 보여줍니다.",
+      "youtubeId": "JTvlujbJ5vg"
+    },
+    {
+      "song": "Blitzkrieg Bop",
+      "artist": "Ramones",
+      "album": "Ramones",
+      "releaseDate": "1976.04.23",
+      "genres": ["Punk Rock", "Garage Rock"],
+      "description": "짧고 단순하며 폭발적인 구조로 뉴욕 펑크의 출발을 알린 곡으로, 이후 펑크 록 문법의 기본형처럼 자리 잡았습니다.",
+      "youtubeId": "skdE0KAFCEA"
+    }
+  ],
+  "1977": [
+    {
+      "song": "I Feel Love",
+      "artist": "Donna Summer",
+      "album": "I Remember Yesterday",
+      "releaseDate": "1977.05.13",
+      "genres": ["Disco", "Electronic", "Hi-NRG"],
+      "description": "조르조 모로더의 전자음악 프로덕션과 도나 서머의 보컬이 결합된 곡으로, 훗날 하우스·테크노·일렉트로닉 댄스 음악에 큰 영향을 주었습니다.",
+      "youtubeId": "bHfrdQ8h2Pw"
+    },
+    {
+      "song": "Best of My Love",
+      "artist": "The Emotions",
+      "album": "Rejoice",
+      "releaseDate": "1977.06.10",
+      "genres": ["Soul", "Disco", "R&B"],
+      "description": "밝고 세련된 소울·디스코 사운드와 여성 보컬 하모니가 돋보이는 곡으로, 1977년 미국 팝과 R&B의 대중적 흐름을 보여줍니다.",
+      "youtubeId": "r3Rd33DvJ7w"
+    },
+    {
+      "song": "Psycho Killer",
+      "artist": "Talking Heads",
+      "album": "Talking Heads: 77",
+      "releaseDate": "1977.09.16",
+      "genres": ["New Wave", "Art Punk", "Post-punk"],
+      "description": "뉴욕 언더그라운드의 긴장감과 미니멀한 리듬을 담은 곡으로, 토킹 헤즈가 뉴 웨이브와 아트 펑크의 대표 밴드로 떠오르는 계기가 되었습니다.",
+      "youtubeId": "CKti7QixnJI"
+    }
+  ],
+  "1978": [
+    {
+      "song": "Le Freak",
+      "artist": "Chic",
+      "album": "C'est Chic",
+      "releaseDate": "1978.08.11",
+      "genres": ["Disco", "Funk", "Dance"],
+      "description": "나일 로저스와 버나드 에드워즈의 세련된 리듬 기타와 베이스가 돋보이는 곡으로, 디스코 시대의 가장 상징적인 히트곡 중 하나입니다.",
+      "youtubeId": "aXgSHL7efKg"
+    },
+    {
+      "song": "September",
+      "artist": "Earth, Wind & Fire",
+      "album": "The Best of Earth, Wind & Fire, Vol. 1",
+      "releaseDate": "1978.11.18",
+      "genres": ["Funk", "Soul", "Disco"],
+      "description": "화려한 브라스, 경쾌한 리듬, 긍정적인 에너지가 결합된 곡으로, 세대를 넘어 사랑받는 펑크·소울 팝의 대표곡입니다.",
+      "youtubeId": "Gs069dndIYk"
+    },
+    {
+      "song": "One Nation Under a Groove",
+      "artist": "Funkadelic",
+      "album": "One Nation Under a Groove",
+      "releaseDate": "1978.09.22",
+      "genres": ["Funk", "P-Funk", "Psychedelic Soul"],
+      "description": "조지 클린턴의 P-Funk 세계관을 대표하는 곡으로, 자유와 해방의 메시지를 강렬한 그루브 위에 담아낸 펑크 음악의 핵심 작품입니다.",
+      "youtubeId": "3WOZwwRH6XU"
+    }
+  ],
+  "1979": [
+    {
+      "song": "Good Times",
+      "artist": "Chic",
+      "album": "Risqué",
+      "releaseDate": "1979.07.30",
+      "genres": ["Disco", "Funk", "Dance"],
+      "description": "베이스 라인이 훗날 힙합과 댄스 음악에 큰 영향을 준 곡으로, 디스코의 세련된 그루브가 정점에 이른 작품입니다.",
+      "youtubeId": "Er9xGRolrT4"
+    },
+    {
+      "song": "Rapper's Delight",
+      "artist": "The Sugarhill Gang",
+      "album": "Rapper's Delight (Single)",
+      "releaseDate": "1979.09.16",
+      "genres": ["Hip Hop", "Disco Rap"],
+      "description": "힙합을 전국적인 대중 차트에 올려놓은 초기 랩 음반으로, 1970년대 말 미국 대중음악이 새로운 시대로 넘어가는 신호탄이 되었습니다.",
+      "youtubeId": "mcCK99wHrk0"
+    },
+    {
+      "song": "Don't Stop 'Til You Get Enough",
+      "artist": "Michael Jackson",
+      "album": "Off the Wall",
+      "releaseDate": "1979.08.10",
+      "genres": ["Disco", "Funk", "Pop"],
+      "description": "마이클 잭슨의 성인 솔로 커리어를 본격적으로 연 곡으로, 디스코와 펑크, 팝을 결합한 세련된 사운드가 1980년대 팝의 방향을 예고했습니다.",
+      "youtubeId": "yURRmWtbTbo"
+    }
+  ],
     "1991": [
       {
         song: "Smells Like Teen Spirit",
